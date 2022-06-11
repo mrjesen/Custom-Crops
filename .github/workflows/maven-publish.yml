@@ -4,8 +4,10 @@
 name: Maven Package
 
 on:
-  release:
-    types: [created]
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -32,6 +34,6 @@ jobs:
       uses: actions/download-artifact@v3.0.0
       with:
         # Artifact name
-        name: 123
+        name: Artifact
         # Destination path
         path: target/*.jar
